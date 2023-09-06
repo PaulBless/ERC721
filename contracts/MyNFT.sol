@@ -37,5 +37,14 @@ contract MyNFT is ERC721, ERC721URIStorage {
     // Return the new token ID
     return tokenId;
     }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721URIStorage)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
 }
 
