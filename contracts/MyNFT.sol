@@ -5,12 +5,14 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MyNFT is ERC721, ERC721URIStorage {
+contract MyNFT is ERC721, ERC721URIStorage, Ownable {
     // Keep track of the token IDs
     uint256 private _tokenId;
 
     // Initialize the contract with the name and symbol of the token
-    constructor() ERC721("MyNFT", "MNFT") {}
+    constructor() ERC721("MyNFT", "MNFT") {
+        
+    }
 
     // Override the _burn function to use the ERC721URIStorage implementation
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
